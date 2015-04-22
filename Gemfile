@@ -28,6 +28,8 @@ gem "wechat-rails", git:"https://github.com/skinnyworm/wechat-rails"
 # Use Unicorn as the app server
 gem 'unicorn'
 
+gem 'settingslogic'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

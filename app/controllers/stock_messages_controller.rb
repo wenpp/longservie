@@ -1,4 +1,4 @@
-class StockMessagesController < ApplicationController
+class StockMessagesController < BaseController
   before_action :set_stock_message, only: [:show, :edit, :update, :destroy]
 
   # GET /stock_messages

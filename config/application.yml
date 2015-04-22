@@ -1,0 +1,14 @@
+defaults: &defaults
+  # Wechat Secret
+  wechat:
+    token: "Passw0rd"
+    AESKey: "wU9C8KT8Q6hqZFK3ygk0oRzYQHlVzOKbSXYfDGxvSmX"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
