@@ -22,7 +22,7 @@ listen app_path + '/tmp/unicorn.longservice.sock'
 # For development, you may want to listen on port 3000 so that you can make sure
 # your unicorn.rb file is soundly configured.
 #listen(3000, backlog: 64) if ENV['RAILS_ENV'] == 'development'
-listen 3000, :tcp_nopush => false
+listen 80, :tcp_nopush => false
 
 # Number of processes
 worker_processes 1

@@ -1,5 +1,9 @@
-class BaseController < ActionController::Base
+class WechatController < ActionController::Base
 	before_action :check_signature
+
+	def token
+		render text: params[:echostr]
+	end
 
 	private
   	def check_signature

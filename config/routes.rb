@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :stock_messages
 
+  get '/token' => 'wechat#token'
+
   root 'stock_messages#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
