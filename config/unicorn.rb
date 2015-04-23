@@ -6,12 +6,11 @@ app_path = File.expand_path(File.dirname(__FILE__) + '/..')
 working_directory app_path
 # Unicorn PID file location
 #pid "/var/www/my_app/pids/unicorn.pid"
-pid app_path+"/tmp/pids/unicorn.pid"
+#pid app_path+"/tmp/pids/unicorn.pid"
+pid "/tmp/pids/unicorn.pid"
 
 # Path to logs
-# stderr_path "/path/to/log/unicorn.log"
-# stdout_path "/path/to/log/unicorn.log"
-stderr_path app_path+ "/log/unicorn.log"
+stderr_path app_path+ "/log/unicorn_error.log"
 stdout_path app_path+ "/log/unicorn.log"
 
 # You can listen on a port or a socket. Listening on a socket is good in a
