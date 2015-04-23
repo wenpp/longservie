@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   resources :stock_messages
 
-  get '/token' => 'wechat#token'
+  post '/' => "messages#create"
+  get '/' => "wechat#token"
+
+  #get 'jsToken' => "secret#jsSDK"
+  #get 'data' => 'secret#data'
+  #post 'data' => 'secret#addData'
+  #get 'sign' => 'secret#sign'
 
   root 'stock_messages#index'
   # The priority is based upon order of creation: first created -> highest priority.
