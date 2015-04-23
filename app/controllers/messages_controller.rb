@@ -1,19 +1,20 @@
 class MessagesController < ApplicationController
-  before_action :modify_data
+  #before_action :modify_data
 
   def create
-    #render xml: respond_message(@serverName, @user.openId , @res || '你的消息小紫已收到并记录，稍后回复你~')
+    render xml: respond_message(params[:xml][:ToUserName], params[:xml][:FromUserName] , '你的消息小紫已收到并记录，稍后回复你~')
   end
 
   private
   def modify_data
+
     #@user = User.find_or_create(params[:xml][:FromUserName])
     #@serverName = params[:xml][:ToUserName]
     #case params[:xml][:MsgType]
     #when "text" then text_data params
     #when "ruby" then ruby_data rawData
     #end
-    puts params[:xml]
+    #puts params[:xml]
   end
   # 接收微信普通消息
   #<xml>
