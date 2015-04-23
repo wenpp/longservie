@@ -2,7 +2,10 @@ class MessagesController < ApplicationController
   #before_action :modify_data
 
   def create
-    render xml: respond_message(params[:xml][:ToUserName], params[:xml][:FromUserName] , '你的消息小紫已收到并记录，稍后回复你~')
+  	if params[:xml][:MsgType] == "text"
+      render "echo", :formats => :xml
+    end
+    # render xml: respond_message(params[:xml][:ToUserName], params[:xml][:FromUserName] , '你的消息小紫已收到并记录，稍后回复你~')
   end
 
   private
