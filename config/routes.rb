@@ -3,13 +3,15 @@ Rails.application.routes.draw do
 
   post '/' => "messages#create"
   get '/' => "wechat#token"
+  post '/index' => "messages#index"
+  get '/index' => "messages#index"
 
   #get 'jsToken' => "secret#jsSDK"
   #get 'data' => 'secret#data'
   #post 'data' => 'secret#addData'
   #get 'sign' => 'secret#sign'
 
-  root 'stock_messages#index'
+  #root 'stock_messages#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

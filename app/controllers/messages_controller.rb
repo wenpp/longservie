@@ -1,6 +1,10 @@
 class MessagesController < ApplicationController
   #before_action :modify_data
 
+  def index
+  	
+  end
+
   def create
   	if params[:xml][:MsgType] == "text"
       render "echo", :formats => :xml

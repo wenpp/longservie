@@ -3,24 +3,14 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   #protect_from_forgery with: :exception
   protect_from_forgery with: :null_session
+  before_action :check_signature
 
-  # 被动返回消息
-  #<xml>
-  #  <ToUserName><![CDATA[toUser]]></ToUserName>
-  #  <FromUserName><![CDATA[fromUser]]></FromUserName>
-  #  <CreateTime>12345678</CreateTime>
-  #  <MsgType><![CDATA[text]]></MsgType>
-  #  <Content><![CDATA[你好]]></Content>
-  #</xml>
-  def respond_message(author, sender, msg)
-    message = {
-      ToUserName: sender,
-      FromUserName: author,
-      CreateTime: Time.now.to_i,
-      MsgType: 'text',
-      Content: msg
-    }
 
-    message.to_xml(root: "xml", children: "item", skip_instruct: true, skip_types: true)
-  end
+  private
+	def check_signature
+	@calc = Digest::SHA1.hexdigest [Rails.configuration.token, params[:timestamp], params[:nonce]].sort.join
+	unless @calc == params[:signature]
+			render text: "Promission Deny", :status=>403
+		end
+	end
 end
