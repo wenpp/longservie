@@ -1,0 +1,8 @@
+<xml>
+    <ToUserName><![CDATA[<%= params[:fromUser] %>]]></ToUserName>
+    <FromUserName><![CDATA[gh_f3c764820cbe]]></FromUserName>
+    <CreateTime><%= Time.now.to_i %></CreateTime>
+    <MsgType><![CDATA[text]]></MsgType>
+    <Content><![CDATA[回声：<%= params[:content] %>]]></Content>
+    <FuncFlag>0</FuncFlag>
+</xml>

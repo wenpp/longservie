@@ -1,15 +1,15 @@
-class MessagesController < ApplicationController
+class MessageController < ApplicationController
   #before_action :modify_data
 
   def index
   	
   end
 
-  def create
-  	if params[:xml][:MsgType] == "text"
+  def response
+      byebug
       render "echo", :formats => :xml
-    end
-    # render xml: respond_message(params[:xml][:ToUserName], params[:xml][:FromUserName] , '你的消息小紫已收到并记录，稍后回复你~')
+      puts "response"
+      #render xml: respond_message(params[:xml][:ToUserName], params[:xml][:FromUserName] , '你的消息小紫已收到并记录，稍后回复你~')
   end
 
   private

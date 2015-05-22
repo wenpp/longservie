@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
-  resources :stock_messages
 
-  post '/' => "messages#create"
-  get '/' => "wechat#token"
-  post '/index' => "messages#index"
-  get '/index' => "messages#index"
+  get '/verify' => "wechat#verify"  #用于微信验证服务器
+  post '/' => "wechat#route"  #微信请求发送过来后的路由
+  get '/message/response' => "message#response"
+
+  get '/home/index' => "home#index", as: :home_url
+
+  #post '/' => "messages#create"
+
+  #resources :stock_messages
+
+  #post '/' => "messages#create"
+  #get '/' => "wechat#token"
+  #post '/index' => "messages#index"
+  #get '/index' => "messages#index"
 
   #get 'jsToken' => "secret#jsSDK"
   #get 'data' => 'secret#data'
